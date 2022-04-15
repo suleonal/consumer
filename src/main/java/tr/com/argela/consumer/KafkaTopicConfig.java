@@ -11,20 +11,18 @@ import org.springframework.kafka.core.KafkaAdmin;
 
 public class KafkaTopicConfig {
 
-
     @Bean
-    public NewTopic otme(){
+    public NewTopic otme() {
         return TopicBuilder.name("otme")
-               .partitions(1)
-               .replicas(1)
-               .build();
+                .partitions(3)
+                .replicas(3)
+                .build();
     }
 
     @Bean
-    public KafkaAdmin kafkaAdmin() 
-	{
+    public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.231.241:9092");
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "0.0.0.0:9092");
         return new KafkaAdmin(configs);
     }
 }
