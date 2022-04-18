@@ -13,16 +13,16 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic otme() {
-        return TopicBuilder.name("otme")
-                .partitions(3)
-                .replicas(3)
+        return TopicBuilder.name("otme20")
+                .partitions(20)
+                .replicas(1)
                 .build();
     }
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "0.0.0.0:9092");
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "10.0.2.15:9092");
         return new KafkaAdmin(configs);
     }
 }
